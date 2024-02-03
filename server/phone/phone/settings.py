@@ -18,7 +18,7 @@ import environ
 env = environ.Env(
     SECRET_KEY=(str, ""),
     FRONTEND_HOST=(str, ""),
-    USER=(str, ""),
+    USER=(str, "user"),
     PASSWORD=(str, ""),
     DB_NAME=(str, ""),
     HOST=(str, ""),
@@ -60,11 +60,13 @@ INSTALLED_APPS = [
     'info',
 
     'rest_framework',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -95,7 +97,7 @@ WSGI_APPLICATION = 'phone.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-USER = env("USER")
+USER = "user"
 PASSWORD = env("PASSWORD")
 HOST = env("HOST")
 DB_PORT = env("DB_PORT")
@@ -148,3 +150,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CORS
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
