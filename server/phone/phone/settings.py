@@ -21,7 +21,8 @@ env = environ.Env(
     DB_PASSWORD=(str, ""),
     DB_NAME=(str, ""),
     DB_HOST=(str, ""),
-    DB_PORT=(str, "")
+    DB_PORT=(str, ""),
+    FRONTEND_HOST=(str, ""),
 )
 
 
@@ -149,6 +150,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS
+FRONTEND_HOST = env("FRONTEND_HOST")
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    FRONTEND_HOST,
 ]
