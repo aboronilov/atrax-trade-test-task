@@ -17,11 +17,10 @@ import environ
 
 env = environ.Env(
     SECRET_KEY=(str, ""),
-    FRONTEND_HOST=(str, ""),
-    USER=(str, "user"),
-    PASSWORD=(str, ""),
+    DB_USER=(str, ""),
+    DB_PASSWORD=(str, ""),
     DB_NAME=(str, ""),
-    HOST=(str, ""),
+    DB_HOST=(str, ""),
     DB_PORT=(str, "")
 )
 
@@ -43,8 +42,6 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = "RENDER" not in os.environ
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-# if env('FRONTEND_HOST'):
-#     ALLOWED_HOSTS.append(env('FRONTEND_HOST'))
 
 
 # Application definition
@@ -97,15 +94,15 @@ WSGI_APPLICATION = 'phone.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-USER = "user"
-PASSWORD = env("PASSWORD")
-HOST = env("HOST")
+DB_USER = env("DB_USER")
+DB_PASSWORD = env("DB_PASSWORD")
+DB_HOST = env("DB_HOST")
 DB_PORT = env("DB_PORT")
 DB_NAME = env("DB_NAME")
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=f'postgres://{USER}:{PASSWORD}@{HOST}:{DB_PORT}/{DB_NAME}',
+        default=f'postgres://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}',
     )
 }
 
@@ -152,7 +149,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # CORS
-
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]

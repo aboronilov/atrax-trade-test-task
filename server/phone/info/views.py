@@ -26,7 +26,7 @@ class PhoneInfoViewSet(viewsets.ModelViewSet):
         phone = request.data.get("phone", None)
         if not phone:
             return Response(status=status.HTTP_400_BAD_REQUEST, data={"Error": "No phone provided"})
-        
+
         operator_code = int(phone[1:4])
         rest_part = int(phone[4:])
 
@@ -34,11 +34,8 @@ class PhoneInfoViewSet(viewsets.ModelViewSet):
         if not phone_exists:
             return Response(status=status.HTTP_404_NOT_FOUND, data={"Error": "No data found"})
 
-        data = {
-            "operator_name": phone_exists.operator_name,
-            "region": phone_exists.region
-        }
-        
+        data = self.serializer_class(phone_exists).data
+
         return Response(status=status.HTTP_200_OK, data=data)
 
     def find_number(self, operator_code, rest_code):
