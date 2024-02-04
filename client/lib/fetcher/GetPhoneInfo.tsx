@@ -13,11 +13,10 @@ type Data = {
 
 
 export async function getPhoneInfo({ phone }: Props): Promise<Data> {
-    const url = "http://127.0.0.1:8000/api/info/stat/"
-
+    const infoStatEndpoint = "info/stat/"
+    const host = process.env.NEXT_PUBLIC_BACKEND_HOST
+    const url = `${host}${infoStatEndpoint}`
     const body = JSON.stringify({ phone })
-    // const params = new URLSearchParams({phone});
-    // const url = baseURL + params.toString();
     const headers = { 'Content-Type': 'application/json' }
 
 
@@ -30,8 +29,6 @@ export async function getPhoneInfo({ phone }: Props): Promise<Data> {
         },
     )
     const status_code = response.status
-
-    // console.log(response)
 
     if (status_code !== 200) {
         return {
