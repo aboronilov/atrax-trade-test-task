@@ -24,36 +24,40 @@
     - Настроить СI/CD pipleines (либо GitHub actions, либо GitLab CI/CD) - добавить задания по прогону тестов и линтеров
 
 # Описание работы приложения
-* При запуске приложения открывается форма с вводом номера телефона. 
+1) При запуске приложения открывается форма с вводом номера телефона. 
 ![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
 
 Валидация отработает если:
-    - Номер телефона начинается не с 7
-![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
 
-    - Длина номера не равна 11
-![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
+* Номер телефона начинается не с 7
 
 ![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
 
-* При введении корректного номера выдается сообщение
-    - пример из зоны ABC-3xx
+* Длина номера не равна 11
 
 ![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
 
-    - пример из зоны ABC-4xx
+![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
+
+2) При введении корректного номера выдается сообщение
+
+* пример из зоны ABC-3xx
 
 ![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
 
-    - пример из зоны ABC-8xx
+* пример из зоны ABC-4xx
 
 ![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
 
-    - пример из зоны DEF-9xx
+* пример из зоны ABC-8xx
 
 ![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
 
-Валидация отработает, если информации по номеру не найдено:
+* пример из зоны DEF-9xx
+
+![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
+
+Валидация отработает, если информация по номеру не найдена:
 
 ![Landing page](https://raw.githubusercontent.com/aboronilov/fasol-test-task/main/static/img/tests.png)
 
