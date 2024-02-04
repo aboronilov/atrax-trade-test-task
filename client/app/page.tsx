@@ -28,8 +28,8 @@ export default function Home() {
     if (status_code === 200) {
       toast.success(`Meta info on the number ${data.phone} recieved successfully`, {
         description: `
-        Operator: ${operator_name}
-        Region: ${region}
+          Operator: ${operator_name}
+          Region: ${region}
       `
       })
     } else {

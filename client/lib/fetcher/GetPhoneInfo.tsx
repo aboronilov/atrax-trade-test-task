@@ -42,4 +42,4 @@ export async function getPhoneInfo({ phone }: Props): Promise<Data> {
         operator_name,
         region
     }
-}   
+}

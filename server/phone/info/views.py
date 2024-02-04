@@ -3,7 +3,6 @@ from .serializers import PhoneInfoSerializer
 from .models import PhoneInfo
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from django.db import connection
 from django.db.models import Q
 
 
